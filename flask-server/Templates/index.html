@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Predict Accident</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+    <style>
+      .login {
+        text-align: center;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        margin: -150px 0 0 -150px;
+        width:400px;
+        height:400px;
+      }
+    </style>
+</head>
+
+<body>
+ <div class="login">
+  <h1>Predict Accident </h1>
+
+     <!-- Form to enter new data for predictions  -->
+    <form action="{{ url_for('predict')}}"method="POST">
+
+      
+        <select type="text" name="road" placeholder="road" required="required" style="width:400px; height:50px; font-size:13px;">
+          <option>M606</option>
+          <option>M621</option>
+          <option>A38(M)</option>
+        </select><p>
+        <select type="direction" name="direction" placeholder="direction" required="required" style="width:400px; height:50px; font-size: 13px">
+          <option value="A38_M_NB"> A38_M_NB </option>
+          <option value="M606_J1toJ2"> M606_J1toJ2 </option>
+          <option value="M606_J2toJ1"> M606_J2toJ1 </option>
+          <option value="M606_J3toJ2"> M606_J3toJ2 </option>
+          <option value="M621_J1_EB"> M621_J1_EB </option>
+          <option value="M621_J1_WB"> M621_J1_WB </option>
+          <option value="M621_J1toM62_WB"> M621_J1toM62_WB </option>
+          <option value="M621_J2_WB"> M621_J2_WB </option>
+          <option value="M621_J27_WB"> M621_J27_WB </option>
+          <option value="M621_J3toJ2A_EB"> M621_J3toJ2A_EB </option>
+          <option value="M621_J3toJ2A_WB"> M621_J3toJ2A_WB </option>
+          <option value="M621_J4_EB"> M621_J4_EB </option>
+          <option value="M621_J4_WB"> M621_J4_WB </option>
+          <option value="M621_J5toJ6_EB"> M621_J5toJ6_EB </option>
+          <option value="M621_J6_EB"> M621_J6_EB </option>
+          <option value="M621_J6_WB"> M621_J6_WB </option>
+          <option value="M621_J6toJ5_WB"> M621_J6toJ5_WB </option>
+          <option value="M621_J7_EB"> M621_J7_EB </option>
+          <option value="M621_J7toJ6_WB"> M621_J7toJ6_WB </option>
+          <option value="M621_J7toM1_EB"> M621_J7toM1_EB </option>
+          <option value="M621_M1toJ7_WB"> M621_M1toJ7_WB </option>
+        </select><p>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+  
+   
+ </div style="text-align: center;">
+ {{pred}}
+
+</body>
+</html>
